@@ -1,0 +1,25 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y wget unzip
+    wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_2.2.3-stable.tar.xz
+    tar xf flutter_linux_2.2.3-stable.tar.xz
+    export PATH="$PATH:`pwd`/flutter/bin"
+    flutter doctor
+  displayName: 'Install Flutter'
+
+- script: |
+    flutter pub get
+  displayName: 'Install dependencies'
+
+- script: |
+    flutter test
+  displayName: 'Run tests'
+
+# Add more steps as needed, for example to build your app or deploy it.
