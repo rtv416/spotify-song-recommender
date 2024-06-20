@@ -1,6 +1,6 @@
-# hello_world_project
+# Spotify Song Recommender
 
-A new Flutter project.
+A project to recommend songs using Spotify's API
 
 ## Getting Started
 
